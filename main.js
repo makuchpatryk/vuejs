@@ -1,11 +1,11 @@
- // base Url of the API
-    const baseUrl = "http://jsonplaceholder.typicode.com";
+ const baseUrl = "http://jsonplaceholder.typicode.com";
 
     // List component
     const List = {
         template: '#list-template',
         data: () => ({
-            posts: []
+            posts: [],
+            search: ""
         }),
         mounted() {
             this.getPosts();
@@ -18,6 +18,13 @@
                 }).catch(error => {
                     console.log(error);
                 })
+            }
+        },
+        computed: {
+            filteredPosts() {
+              return this.posts.filter(post => {
+                 return post.title.includes(this.search);
+              })
             }
         }
     };
@@ -48,15 +55,15 @@
     var router = new VueRouter({
         mode: 'history',
         routes: [
-            {
-                name: 'homepage',
-                path: '/',
-                component: List
-            }, {
-                name: 'post',
-                path: '/:id',
-                component: Post
-            }
+        {
+            name: 'homepage',
+            path: '/',
+            component: List
+        }, {
+            name: 'post',
+            path: '/:id',
+            component: Post
+        }
         ]
     });
 

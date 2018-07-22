@@ -1,51 +1,23 @@
  <html>
  <head>
- 	<title>Vue Reader</title>
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
- 	<link rel="stylesheet" href="style.css">
+ 	<title>React App</title>
+ <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
  </head>
  <body>
- 	<div id="app">
- 		<router-view />
- 	</div>
- 	<template id="list-template">
- 		<div class="container">
- 			<input v-model="search" placeholder="Enter search terms">
- 			<p>Displaying {{ filteredPosts.length }} posts, filtered by <strong>{{ search }}</strong></p>
- 			<ul>
- 				<li v-for="post in filteredPosts">
- 					<router-link :to="{ name: 'post', params: { id: post.id }}">
- 						{{post.title}}
- 					</router-link>
- 				</li>
- 			</ul>
- 		</div>
- 	</template>
- 	<template id="list-template">
- 		<div class="container">
- 			<ul>
- 				<li v-for="post in posts">
- 					<router-link :to="{ name: 'post', params: { id: post.id }}">
- 						{{post.title}}
- 					</router-link>
- 				</li>
- 			</ul>
- 		</div>
- 	</template>
- 	<template id="post-template">
- 		<div class="container">
- 			<div>
- 				<router-link :to="{ name: 'homepage' }">Homepage</router-link>
- 				<h3>{{post.title}}</h3>
- 				{{post.body}}
- 			</div>
- 		</div>
- 	</template>
- </div>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.3/vue-router.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.js"></script>
+<div id="container">
+	
+</div>
+<script type="text/babel">
+	var destination = document.querySelector("#container");
 
- <script src="main.js"></script>
+	ReactDOM.render(
+		<div>
+			Hello!
+		</div>,
+		destination
+		);
+</script>
 </body>
 </html>
